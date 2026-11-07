@@ -4,6 +4,7 @@ import DiscoverSection from "./components/DiscoverSection";
 import TrackDiscoverySection from "./components/TrackDiscoverySection";
 import LearningFormatSection from "./components/LearningFormatSection";
 import BuildAndBelongSection from "./components/BuildAndBelongSection";
+import GettingStartedSection from "./components/GettingStartedSection";
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
         <TrackDiscoverySection />
         <LearningFormatSection />
         <BuildAndBelongSection />
+        <GettingStartedSection />
       </main>
     </div>
   );

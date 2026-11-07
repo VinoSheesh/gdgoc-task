@@ -1,22 +1,23 @@
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import Container from "./ui/Container";
+import SectionBadge from "./ui/SectionBadge";
 
 export default function HeroSection() {
   return (
     <section className="relative w-full overflow-hidden bg-white">
-      <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-12 px-6 py-12 md:py-20 lg:flex-row lg:items-center lg:gap-14 lg:px-12">
+      <Container className="flex flex-col items-center justify-between gap-12 py-12 md:py-20 lg:flex-row lg:items-center lg:gap-14">
         {/* ========================================================
             LEFT COLUMN: Copy, Badges, CTAs
            ======================================================== */}
         <div className="flex flex-1 flex-col items-start text-left max-w-xl">
-          {/* Sub-badge: GDGOC UGM • 2026/2027 */}
-          <div className="mb-6 flex items-center gap-2">
-            <span className="h-2 w-2 rounded-full bg-[#1a73e8]" />
-            <span className="text-xs font-semibold uppercase tracking-wider text-gray-500">
-              GDGOC UGM • 2026/2027
-            </span>
-          </div>
+          {/* Sub-badge */}
+          <SectionBadge
+            label="GDGOC UGM • 2026/2027"
+            className="mb-6"
+            textColor="text-xs font-semibold uppercase tracking-wider text-gray-500"
+          />
 
           {/* Heading */}
           <h1 className="mb-6 text-[44px] font-extrabold leading-[1.08] tracking-tight text-[#111827] sm:text-6xl lg:text-[68px]">
@@ -81,13 +82,13 @@ export default function HeroSection() {
             className="w-full h-auto object-contain select-none"
           />
         </div>
-      </div>
+      </Container>
 
       {/* ========================================================
           DIVIDER BAR: Learn by doing · Connect · Build with purpose
          ======================================================== */}
-      <div className="border-t border-b border-gray-200 bg-white">
-        <div className="mx-auto max-w-7xl px-6 lg:px-12">
+      <div className="border-t border-gray-200 bg-white">
+        <Container>
           <div className="flex flex-col divide-y divide-gray-100 sm:flex-row sm:items-center sm:justify-between sm:divide-y-0">
             <div className="flex items-center gap-2.5 py-5">
               <span className="h-[10px] w-[10px] shrink-0 rounded-[2px] bg-[#4285f4]" />
@@ -108,7 +109,8 @@ export default function HeroSection() {
               </span>
             </div>
           </div>
-        </div>
+        </Container>
+        <div className="h-[1px] w-full bg-gray-200" />
       </div>
     </section>
   );

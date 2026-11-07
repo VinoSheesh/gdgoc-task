@@ -1,11 +1,12 @@
-import { ArrowRight } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
+import ArrowLink from "./ui/ArrowLink";
+import Container from "./ui/Container";
+import SectionBadge from "./ui/SectionBadge";
 
 export default function BuildAndBelongSection() {
   return (
     <section className="w-full bg-white">
-      <div className="mx-auto max-w-7xl px-6 py-16 sm:py-20 lg:py-24 lg:px-12">
+      <Container className="py-16 sm:py-20 lg:py-24">
         <div className="flex flex-col items-center gap-12 lg:flex-row lg:items-center lg:gap-16">
           {/* ── Left Column: Image Card (Build and Belong.png) ── */}
           <div className="flex w-full flex-1 items-center justify-center">
@@ -25,12 +26,7 @@ export default function BuildAndBelongSection() {
           {/* ── Right Column: Text & Content ── */}
           <div className="flex w-full flex-1 flex-col items-start lg:max-w-xl">
             {/* Micro-badge */}
-            <div className="mb-5 flex items-center gap-2">
-              <span className="h-2 w-2 rounded-full bg-[#1a73e8]" />
-              <span className="text-[11px] font-semibold uppercase tracking-[0.1em] text-gray-400">
-                Build something that matters
-              </span>
-            </div>
+            <SectionBadge label="Build something that matters" />
 
             {/* Heading */}
             <h2 className="mb-6 text-[32px] font-extrabold leading-[1.12] tracking-tight text-[#111827] sm:text-[38px] lg:text-[44px]">
@@ -50,17 +46,12 @@ export default function BuildAndBelongSection() {
             </p>
 
             {/* Action Link */}
-            <Link
-              href="#projects"
-              className="group flex items-center gap-1.5 text-[14px] font-semibold text-[#1a73e8] transition-colors hover:text-[#1557b0]"
-            >
-              <span>Explore project-based learning</span>
-              <ArrowRight className="h-4 w-4 stroke-[2.5] transition-transform group-hover:translate-x-0.5" />
-            </Link>
+            <ArrowLink href="#projects">
+              Explore project-based learning
+            </ArrowLink>
           </div>
         </div>
-      </div>
+      </Container>
     </section>
   );
 }
-

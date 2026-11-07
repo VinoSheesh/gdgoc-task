@@ -1,5 +1,7 @@
-import { ArrowRight } from "lucide-react";
-import Link from "next/link";
+import ArrowLink from "./ui/ArrowLink";
+import Container from "./ui/Container";
+import SectionBadge from "./ui/SectionBadge";
+import SectionDivider from "./ui/SectionDivider";
 
 const tags = ["Student-led", "Peer-powered", "Curiosity-first"];
 
@@ -7,21 +9,14 @@ export default function DiscoverSection() {
   return (
     <section className="w-full bg-white">
       {/* Top border separator */}
-      <div className="mx-auto max-w-7xl px-6 lg:px-12">
-        <div className="border-t border-gray-200" />
-      </div>
 
-      <div className="mx-auto max-w-7xl px-6 py-14 md:py-20 lg:px-12">
+
+      <Container className="py-14 md:py-20">
         <div className="flex flex-col gap-10 lg:flex-row lg:items-start lg:gap-24">
           {/* ── Left Column ── */}
           <div className="flex flex-1 flex-col items-start lg:max-w-md">
             {/* Badge */}
-            <div className="mb-5 flex items-center gap-2">
-              <span className="h-2 w-2 rounded-full bg-[#1a73e8]" />
-              <span className="text-[11px] font-semibold uppercase tracking-[0.1em] text-gray-400">
-                A campus. A community.
-              </span>
-            </div>
+            <SectionBadge label="A campus. A community." />
 
             {/* Heading */}
             <h2 className="mb-6 text-[32px] font-extrabold leading-[1.15] tracking-tight text-[#111827] sm:text-[40px] lg:text-[44px]">
@@ -33,13 +28,9 @@ export default function DiscoverSection() {
             </h2>
 
             {/* Link */}
-            <Link
-              href="#about"
-              className="group flex items-center gap-1.5 text-[14px] font-semibold text-[#1a73e8] transition-colors hover:text-[#1557b0]"
-            >
+            <ArrowLink href="#about">
               More about GDGoC UGM
-              <ArrowRight className="h-4 w-4 stroke-[2.5] transition-transform group-hover:translate-x-0.5" />
-            </Link>
+            </ArrowLink>
           </div>
 
           {/* ── Right Column ── */}
@@ -73,7 +64,7 @@ export default function DiscoverSection() {
             </div>
           </div>
         </div>
-      </div>
+      </Container>
     </section>
   );
 }
