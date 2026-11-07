@@ -1,5 +1,7 @@
 import Navbar from "./components/Navbar";
 import HeroSection from "./components/HeroSection";
+import DiscoverSection from "./components/DiscoverSection";
+import TrackDiscoverySection from "./components/TrackDiscoverySection";
 
 export default function Home() {
   return (
@@ -7,6 +9,8 @@ export default function Home() {
       <Navbar />
       <main>
         <HeroSection />
+        <DiscoverSection />
+        <TrackDiscoverySection />
       </main>
     </div>
   );
