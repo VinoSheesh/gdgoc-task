@@ -17,19 +17,22 @@
   <a href="https://gdgoc-task-x7if-rouge.vercel.app" target="_blank">
     <img src="https://img.shields.io/badge/Vercel-Live_Deployment-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="Vercel Live Deployment" />
   </a>
+  <a href="https://drive.google.com/file/d/1m_7n5Jq2bW2m5D9QYL-RbuLf-ph5CCNh/view?usp=sharing" target="_blank">
+    <img src="https://img.shields.io/badge/Video-Presentation_Demo-EA4335?style=for-the-badge&logo=google-drive&logoColor=white" alt="Video Presentation" />
+  </a>
 </p>
 
 <p align="center">
-  🌐 <strong>Live URL:</strong> <a href="https://gdgoc-task-x7if-rouge.vercel.app" target="_blank"><strong>https://gdgoc-task-x7if-rouge.vercel.app</strong></a>
+  🌐 <strong>Live URL:</strong> <a href="https://gdgoc-task-x7if-rouge.vercel.app" target="_blank"><strong>https://gdgoc-task-x7if-rouge.vercel.app</strong></a> &nbsp;|&nbsp;
+  🎥 <strong>Video Demo:</strong> <a href="https://drive.google.com/file/d/1m_7n5Jq2bW2m5D9QYL-RbuLf-ph5CCNh/view?usp=sharing" target="_blank"><strong>Watch on Google Drive</strong></a>
 </p>
 
 ---
 
-## 🌐 Live Website
+## 🌐 Live Website & Demo
 
-The production build of this website is hosted and live on Vercel:
-
-👉 **[https://gdgoc-task-x7if-rouge.vercel.app](https://gdgoc-task-x7if-rouge.vercel.app)**
+* 🚀 **Production Website**: [https://gdgoc-task-x7if-rouge.vercel.app](https://gdgoc-task-x7if-rouge.vercel.app)
+* 🎥 **Video Presentation (Walkthrough)**: [Watch on Google Drive](https://drive.google.com/file/d/1m_7n5Jq2bW2m5D9QYL-RbuLf-ph5CCNh/view?usp=sharing)
 
 ---
 
@@ -241,9 +244,10 @@ npm run lint
 
 ---
 
-## 👥 Community & Social Links
+## 👥 Community & Project Links
 
 * **Live Demo**: [gdgoc-task-x7if-rouge.vercel.app](https://gdgoc-task-x7if-rouge.vercel.app)
+* **Video Presentation**: [Watch on Google Drive](https://drive.google.com/file/d/1m_7n5Jq2bW2m5D9QYL-RbuLf-ph5CCNh/view?usp=sharing)
 * **Institution**: Universitas Gadjah Mada (UGM)
 * **Instagram**: [@gdgoc.ugm](https://instagram.com/gdgoc.ugm)
 * **Community Chapter**: [Google Developer Groups on Campus UGM](https://gdg.community.dev)
