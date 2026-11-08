@@ -8,6 +8,8 @@ interface ArrowLinkProps {
   className?: string;
   groupClass?: string;
   arrowAnimationClass?: string;
+  target?: string;
+  rel?: string;
 }
 
 export default function ArrowLink({
@@ -16,10 +18,14 @@ export default function ArrowLink({
   className = "",
   groupClass = "group",
   arrowAnimationClass = "group-hover:translate-x-0.5",
+  target,
+  rel,
 }: ArrowLinkProps) {
   return (
     <Link
       href={href}
+      target={target}
+      rel={rel}
       className={`${groupClass} flex items-center gap-1.5 text-[14px] font-semibold text-[#1a73e8] transition-colors hover:text-[#1557b0] ${className}`}
     >
       <span>{children}</span>

@@ -15,7 +15,7 @@ export default function Navbar() {
     { label: "Home", href: "/", active: pathname === "/" },
     { label: "About", href: "/about", active: pathname === "/about" },
     { label: "Overview", href: "/overview", active: pathname === "/overview" },
-    { label: "Contact", href: "/#contact", active: pathname === "/contact" },
+    { label: "Contact", href: "/contact", active: pathname === "/contact" },
   ];
 
   return (
@@ -93,7 +93,7 @@ export default function Navbar() {
         {/* Right CTA Button */}
         <div className="hidden md:flex items-center">
           <Link
-            href="#track"
+            href="/#track"
             className="flex items-center gap-2 rounded-xl bg-[#1a73e8] hover:bg-[#1557b0] px-5 py-2.5 text-[14px] font-medium text-white shadow-sm transition-all active:scale-[0.98]"
           >
             <span>Find your track</span>
@@ -130,7 +130,7 @@ export default function Navbar() {
               </Link>
             ))}
             <Link
-              href="#track"
+              href="/#track"
               onClick={() => setMobileOpen(false)}
               className="mt-2 flex items-center justify-center gap-2 rounded-xl bg-[#1a73e8] px-5 py-3 text-sm font-medium text-white transition-colors hover:bg-[#1557b0]"
             >

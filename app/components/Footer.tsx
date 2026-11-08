@@ -22,7 +22,7 @@ const defaultExploreLinks: FooterLink[] = [
   { label: "Home", href: "/" },
   { label: "About", href: "#about" },
   { label: "Overview", href: "#overview" },
-  { label: "Contact", href: "#contact" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export default function Footer({
