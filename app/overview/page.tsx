@@ -14,13 +14,20 @@ export const metadata = {
     "Explore how research, creativity, and development connect. Start with one interest. Grow through practice and the people around you.",
 };
 
-export default function OverviewPage() {
+interface OverviewPageProps {
+  searchParams?: Promise<{ track?: string }>;
+}
+
+export default async function OverviewPage({ searchParams }: OverviewPageProps) {
+  const resolvedParams = searchParams ? await searchParams : undefined;
+  const activeTrackId = resolvedParams?.track;
+
   return (
     <div className="flex min-h-screen flex-col bg-white">
       <Navbar />
       <main className="flex-1">
         <OverviewIntroSection />
-        <LearningTrackOverviewSection />
+        <LearningTrackOverviewSection activeTrackId={activeTrackId} />
         <LearningOutcomesSection />
         <ProgramFormatsSection />
         <LearningJourneySection />
@@ -31,4 +38,3 @@ export default function OverviewPage() {
     </div>
   );
 }
-

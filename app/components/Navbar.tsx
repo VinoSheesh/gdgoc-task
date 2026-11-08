@@ -4,19 +4,43 @@ import { ArrowRight, Menu, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { DEFAULT_NAV_LINKS, NavItem } from "../lib/navigation";
 
-export default function Navbar() {
+interface NavbarProps {
+  initialNavLinks?: NavItem[];
+}
+
+export default function Navbar({ initialNavLinks }: NavbarProps) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [imageError, setImageError] = useState(false);
+  const [links, setLinks] = useState<NavItem[]>(
+    initialNavLinks || DEFAULT_NAV_LINKS
+  );
   const pathname = usePathname();
 
-  const navLinks = [
-    { label: "Home", href: "/", active: pathname === "/" },
-    { label: "About", href: "/about", active: pathname === "/about" },
-    { label: "Overview", href: "/overview", active: pathname === "/overview" },
-    { label: "Contact", href: "/contact", active: pathname === "/contact" },
-  ];
+  useEffect(() => {
+    let isMounted = true;
+    fetch("https://gdgoc-ugm-api.vercel.app/api/navigation")
+      .then((res) => res.json())
+      .then((data) => {
+        if (isMounted && data.success && Array.isArray(data.data) && data.data.length > 0) {
+          setLinks(data.data);
+        }
+      })
+      .catch((err) => {
+        console.warn("Could not fetch navigation API in Navbar, using fallback:", err);
+      });
+
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+
+  const navLinks = links.map((link) => ({
+    ...link,
+    active: pathname === link.href,
+  }));
 
   return (
     <nav className="sticky top-0 z-50 w-full border-b border-gray-100 bg-white/95 backdrop-blur-md">

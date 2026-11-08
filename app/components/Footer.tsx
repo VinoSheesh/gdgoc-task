@@ -4,26 +4,17 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import Container from "./ui/Container";
-
-interface FooterLink {
-  label: string;
-  href: string;
-}
+import { DEFAULT_NAV_LINKS, NavItem } from "../lib/navigation";
 
 interface FooterProps {
   className?: string;
-  exploreLinks?: FooterLink[];
+  exploreLinks?: NavItem[];
   handle?: string;
   handleUrl?: string;
   year?: string;
 }
 
-const defaultExploreLinks: FooterLink[] = [
-  { label: "Home", href: "/" },
-  { label: "About", href: "#about" },
-  { label: "Overview", href: "#overview" },
-  { label: "Contact", href: "/contact" },
-];
+const defaultExploreLinks: NavItem[] = DEFAULT_NAV_LINKS;
 
 export default function Footer({
   className = "",

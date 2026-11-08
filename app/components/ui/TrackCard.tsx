@@ -2,6 +2,7 @@ import Image from "next/image";
 import ArrowLink from "./ArrowLink";
 
 export interface TrackCardProps {
+  id?: string;
   badge: string;
   title: string;
   description: string;
@@ -12,9 +13,11 @@ export interface TrackCardProps {
   bgGradient: string;
   glowColor: string;
   href?: string;
+  active?: boolean;
 }
 
 export default function TrackCard({
+  id,
   badge,
   title,
   description,
@@ -25,9 +28,17 @@ export default function TrackCard({
   bgGradient,
   glowColor,
   href = "#tracks",
+  active = false,
 }: TrackCardProps) {
   return (
-    <div className="group flex flex-col overflow-hidden rounded-[24px] border border-gray-100 bg-white shadow-[0_2px_12px_rgba(0,0,0,0.03)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_10px_24px_rgba(0,0,0,0.06)]">
+    <div
+      id={id}
+      className={`group flex flex-col overflow-hidden rounded-[24px] border bg-white transition-all duration-300 hover:-translate-y-0.5 ${
+        active
+          ? "border-[#1a73e8] ring-2 ring-[#1a73e8]/20 shadow-[0_10px_24px_rgba(26,115,232,0.12)]"
+          : "border-gray-100 shadow-[0_2px_12px_rgba(0,0,0,0.03)] hover:shadow-[0_10px_24px_rgba(0,0,0,0.06)]"
+      }`}
+    >
       {/* ── Image Area (Header Card with 3D Illustration) ── */}
       <div className="relative w-full aspect-[1.42/1] overflow-hidden rounded-t-[24px]">
         {/* Background pastel gradient */}
@@ -91,4 +102,3 @@ export default function TrackCard({
     </div>
   );
 }
-

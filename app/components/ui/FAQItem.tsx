@@ -12,7 +12,7 @@ interface FAQItemProps {
 export default function FAQItem({
   question,
   answer,
-  defaultOpen = true,
+  defaultOpen = false,
 }: FAQItemProps) {
   const [isOpen, setIsOpen] = useState(defaultOpen);
 
@@ -21,9 +21,10 @@ export default function FAQItem({
       <button
         type="button"
         onClick={() => setIsOpen(!isOpen)}
-        className="flex w-full items-center justify-between py-5 text-left"
+        className="flex w-full items-center justify-between py-5 text-left group"
+        aria-expanded={isOpen}
       >
-        <h3 className="pr-8 text-[16px] font-semibold leading-snug text-[#111827] md:text-[18px]">
+        <h3 className="pr-8 text-[16px] font-semibold leading-snug text-[#111827] transition-colors group-hover:text-[#1a73e8] md:text-[18px]">
           {question}
         </h3>
         <ChevronDown
@@ -34,7 +35,7 @@ export default function FAQItem({
       </button>
       <div
         className={`overflow-hidden transition-all duration-300 ease-in-out ${
-          isOpen ? "max-h-40 pb-5 opacity-100" : "max-h-0 pb-0 opacity-0"
+          isOpen ? "max-h-60 pb-5 opacity-100" : "max-h-0 pb-0 opacity-0"
         }`}
       >
         <p className="text-[14px] leading-relaxed text-gray-500 md:text-[15px]">
@@ -44,4 +45,3 @@ export default function FAQItem({
     </div>
   );
 }
-

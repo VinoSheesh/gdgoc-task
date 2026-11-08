@@ -2,48 +2,21 @@ import ArrowLink from "./ui/ArrowLink";
 import Container from "./ui/Container";
 import SectionBadge from "./ui/SectionBadge";
 import SectionDivider from "./ui/SectionDivider";
-import TrackCard, { TrackCardProps } from "./ui/TrackCard";
+import TrackCard from "./ui/TrackCard";
+import { getTracks, getTrackById, mapTrackToCardProps } from "../lib/tracks";
 
-const tracks: TrackCardProps[] = [
-  {
-    badge: "EXPLORE THE WHY",
-    title: "Research & discovery",
-    description:
-      "Ask better questions, understand people, and turn insight into a clear problem worth solving.",
-    tags: "Problem framing · User research · Product thinking",
-    image: "/Research&discovery.png",
-    imageWidth: 1120,
-    imageHeight: 1120,
-    bgGradient: "bg-gradient-to-b from-[#e9f1fe] via-[#edf4fe] to-[#f5f9ff]",
-    glowColor: "bg-[#3b82f6]/25",
-  },
-  {
-    badge: "MAKE IT MEANINGFUL",
-    title: "Design & creativity",
-    description:
-      "Translate ideas into thoughtful experiences, from a first sketch to a prototype people can use.",
-    tags: "UI/UX · Visual storytelling · Prototyping",
-    image: "/Design%20%26%20Creativity.png",
-    imageWidth: 1120,
-    imageHeight: 1120,
-    bgGradient: "bg-gradient-to-b from-[#fff8e3] via-[#fef6df] to-[#fefaf0]",
-    glowColor: "bg-[#f59e0b]/25",
-  },
-  {
-    badge: "BRING IDEAS TO LIFE",
-    title: "Development",
-    description:
-      "Learn the tools, write the code, and build useful things with people who enjoy figuring it out.",
-    tags: "Web & mobile · Cloud · AI foundations",
-    image: "/Development.png",
-    imageWidth: 307,
-    imageHeight: 307,
-    bgGradient: "bg-gradient-to-b from-[#eaf5ed] via-[#edf7ee] to-[#f4faf5]",
-    glowColor: "bg-[#22c55e]/25",
-  },
-];
+export default async function TrackDiscoverySection() {
+  // Fetch all tracks and specifically get single track data for research-discovery
+  const [allTracks, researchTrack] = await Promise.all([
+    getTracks(),
+    getTrackById("research-discovery"),
+  ]);
 
-export default function TrackDiscoverySection() {
+  // Ensure research-discovery uses the exact data from the single track endpoint
+  const tracks = allTracks.map((t) =>
+    t.id === "research-discovery" && researchTrack ? researchTrack : t
+  );
+
   return (
     <section className="w-full bg-white">
       {/* Top border separator */}
@@ -67,7 +40,7 @@ export default function TrackDiscoverySection() {
             <p className="text-[15px] leading-relaxed text-gray-500">
               Follow what excites you. Explore a track, then connect the dots with others.
             </p>
-            <ArrowLink href="#overview" className="shrink-0">
+            <ArrowLink href="/overview" className="shrink-0">
               See the overview
             </ArrowLink>
           </div>
@@ -75,9 +48,10 @@ export default function TrackDiscoverySection() {
 
         {/* ── Cards Grid ── */}
         <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-          {tracks.map((track) => (
-            <TrackCard key={track.title} {...track} />
-          ))}
+          {tracks.map((track) => {
+            const cardProps = mapTrackToCardProps(track);
+            return <TrackCard key={track.id} {...cardProps} />;
+          })}
         </div>
       </Container>
     </section>
