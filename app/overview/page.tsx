@@ -1,5 +1,7 @@
 import Navbar from "../components/Navbar";
 import OverviewIntroSection from "../components/OverviewIntroSection";
+import LearningTrackOverviewSection from "../components/LearningTrackOverviewSection";
+import LearningOutcomesSection from "../components/LearningOutcomesSection";
 import Footer from "../components/Footer";
 
 export const metadata = {
@@ -14,6 +16,8 @@ export default function OverviewPage() {
       <Navbar />
       <main className="flex-1">
         <OverviewIntroSection />
+        <LearningTrackOverviewSection />
+        <LearningOutcomesSection />
       </main>
       <Footer />
     </div>
