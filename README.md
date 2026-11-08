@@ -14,7 +14,22 @@
   <img src="https://img.shields.io/badge/TypeScript-5.0-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
   <img src="https://img.shields.io/badge/Tailwind_CSS-v4-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind CSS" />
   <img src="https://img.shields.io/badge/Lenis-Smooth_Scroll-1a73e8?style=for-the-badge" alt="Lenis" />
+  <a href="https://gdgoc-task-x7if-rouge.vercel.app" target="_blank">
+    <img src="https://img.shields.io/badge/Vercel-Live_Deployment-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="Vercel Live Deployment" />
+  </a>
 </p>
+
+<p align="center">
+  🌐 <strong>Live URL:</strong> <a href="https://gdgoc-task-x7if-rouge.vercel.app" target="_blank"><strong>https://gdgoc-task-x7if-rouge.vercel.app</strong></a>
+</p>
+
+---
+
+## 🌐 Live Website
+
+The production build of this website is hosted and live on Vercel:
+
+👉 **[https://gdgoc-task-x7if-rouge.vercel.app](https://gdgoc-task-x7if-rouge.vercel.app)**
 
 ---
 
@@ -228,6 +243,7 @@ npm run lint
 
 ## 👥 Community & Social Links
 
+* **Live Demo**: [gdgoc-task-x7if-rouge.vercel.app](https://gdgoc-task-x7if-rouge.vercel.app)
 * **Institution**: Universitas Gadjah Mada (UGM)
 * **Instagram**: [@gdgoc.ugm](https://instagram.com/gdgoc.ugm)
 * **Community Chapter**: [Google Developer Groups on Campus UGM](https://gdg.community.dev)
