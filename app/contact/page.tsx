@@ -1,5 +1,6 @@
 import Navbar from "../components/Navbar";
 import ContactCommunitySection from "../components/ContactCommunitySection";
+import BeforeYouSendSection from "../components/BeforeYouSendSection";
 import Footer from "../components/Footer";
 
 export const metadata = {
@@ -14,6 +15,7 @@ export default function ContactPage() {
       <Navbar />
       <main className="flex-1">
         <ContactCommunitySection />
+        <BeforeYouSendSection />
       </main>
       <Footer />
     </div>
