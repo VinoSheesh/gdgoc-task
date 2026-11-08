@@ -1,15 +1,11 @@
+import { Suspense } from "react";
 import Container from "./ui/Container";
 import SectionBadge from "./ui/SectionBadge";
 import TrackCard from "./ui/TrackCard";
+import TrackHighlighter from "./TrackHighlighter";
 import { getTracks, getTrackById, mapTrackToCardProps } from "../lib/tracks";
 
-interface LearningTrackOverviewProps {
-  activeTrackId?: string;
-}
-
-export default async function LearningTrackOverviewSection({
-  activeTrackId,
-}: LearningTrackOverviewProps) {
+export default async function LearningTrackOverviewSection() {
   // Fetch all tracks and specifically get single track data for research-discovery
   const [allTracks, researchTrack] = await Promise.all([
     getTracks(),
@@ -23,6 +19,10 @@ export default async function LearningTrackOverviewSection({
 
   return (
     <section id="learning-tracks" className="w-full bg-white py-14 md:py-20 scroll-mt-20">
+      <Suspense fallback={null}>
+        <TrackHighlighter />
+      </Suspense>
+
       <Container>
         {/* ── Header ── */}
         <div className="mb-10 max-w-3xl md:mb-14">
@@ -43,8 +43,7 @@ export default async function LearningTrackOverviewSection({
         {/* ── Cards Grid ── */}
         <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
           {tracks.map((track) => {
-            const isActive = activeTrackId === track.id;
-            const cardProps = mapTrackToCardProps(track, undefined, isActive);
+            const cardProps = mapTrackToCardProps(track);
             return <TrackCard key={track.id} {...cardProps} />;
           })}
         </div>
