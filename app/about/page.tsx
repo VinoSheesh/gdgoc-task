@@ -1,5 +1,7 @@
 import Navbar from "../components/Navbar";
 import AboutHeroSection from "../components/AboutHeroSection";
+import OurPurposeSection from "../components/OurPurposeSection";
+import CommunityValuesSection from "../components/CommunityValuesSection";
 import Footer from "../components/Footer";
 
 export const metadata = {
@@ -14,6 +16,8 @@ export default function AboutPage() {
       <Navbar />
       <main className="flex-1">
         <AboutHeroSection />
+        <OurPurposeSection />
+        <CommunityValuesSection />
       </main>
       <Footer />
     </div>
