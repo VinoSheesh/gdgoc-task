@@ -4,6 +4,7 @@ import LearningTrackOverviewSection from "../components/LearningTrackOverviewSec
 import LearningOutcomesSection from "../components/LearningOutcomesSection";
 import ProgramFormatsSection from "../components/ProgramFormatsSection";
 import LearningJourneySection from "../components/LearningJourneySection";
+import StartingPointGuidanceSection from "../components/StartingPointGuidanceSection";
 import CommunityInvitationSection from "../components/CommunityInvitationSection";
 import Footer from "../components/Footer";
 
@@ -23,6 +24,7 @@ export default function OverviewPage() {
         <LearningOutcomesSection />
         <ProgramFormatsSection />
         <LearningJourneySection />
+        <StartingPointGuidanceSection />
         <CommunityInvitationSection />
       </main>
       <Footer />
