@@ -1,7 +1,6 @@
 import ArrowLink from "./ui/ArrowLink";
 import Container from "./ui/Container";
 import SectionBadge from "./ui/SectionBadge";
-import SectionDivider from "./ui/SectionDivider";
 
 const tags = ["Student-led", "Peer-powered", "Curiosity-first"];
 

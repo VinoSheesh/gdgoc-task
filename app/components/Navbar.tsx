@@ -92,7 +92,7 @@ export default function Navbar() {
         <div className="hidden md:flex items-center">
           <Link
             href="#track"
-            className="flex items-center gap-2 rounded-xl bg-[#2b72ee] hover:bg-[#1f62dc] px-5 py-2.5 text-[14px] font-medium text-white shadow-sm transition-all active:scale-[0.98]"
+            className="flex items-center gap-2 rounded-xl bg-[#1a73e8] hover:bg-[#1557b0] px-5 py-2.5 text-[14px] font-medium text-white shadow-sm transition-all active:scale-[0.98]"
           >
             <span>Find your track</span>
             <ArrowRight className="h-4 w-4 stroke-[2.2]" />
@@ -130,7 +130,7 @@ export default function Navbar() {
             <Link
               href="#track"
               onClick={() => setMobileOpen(false)}
-              className="mt-2 flex items-center justify-center gap-2 rounded-xl bg-[#2b72ee] px-5 py-3 text-sm font-medium text-white transition-colors hover:bg-[#1f62dc]"
+              className="mt-2 flex items-center justify-center gap-2 rounded-xl bg-[#1a73e8] px-5 py-3 text-sm font-medium text-white transition-colors hover:bg-[#1557b0]"
             >
               <span>Find your track</span>
               <ArrowRight className="h-4 w-4 stroke-[2.2]" />

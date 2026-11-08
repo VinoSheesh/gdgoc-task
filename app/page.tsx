@@ -7,6 +7,7 @@ import BuildAndBelongSection from "./components/BuildAndBelongSection";
 import GettingStartedSection from "./components/GettingStartedSection";
 import BelongingStatementSection from "./components/BelongingStatementSection";
 import FAQSection from "./components/FAQSection";
+import CommunityInvitationSection from "./components/CommunityInvitationSection";
 
 export default function Home() {
   return (
@@ -21,6 +22,7 @@ export default function Home() {
         <GettingStartedSection />
         <BelongingStatementSection />
         <FAQSection />
+        <CommunityInvitationSection />
       </main>
     </div>
   );
