@@ -14,7 +14,7 @@ export default function Navbar() {
   const navLinks = [
     { label: "Home", href: "/", active: pathname === "/" },
     { label: "About", href: "/about", active: pathname === "/about" },
-    { label: "Overview", href: "/#overview", active: pathname === "/overview" },
+    { label: "Overview", href: "/overview", active: pathname === "/overview" },
     { label: "Contact", href: "/#contact", active: pathname === "/contact" },
   ];
 
