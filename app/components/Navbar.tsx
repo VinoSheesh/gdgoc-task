@@ -3,18 +3,20 @@
 import { ArrowRight, Menu, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
-
-const navLinks = [
-  { label: "Home", href: "#", active: true },
-  { label: "About", href: "#about" },
-  { label: "Overview", href: "#overview" },
-  { label: "Contact", href: "#contact" },
-];
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [imageError, setImageError] = useState(false);
+  const pathname = usePathname();
+
+  const navLinks = [
+    { label: "Home", href: "/", active: pathname === "/" },
+    { label: "About", href: "/about", active: pathname === "/about" },
+    { label: "Overview", href: "/#overview", active: pathname === "/overview" },
+    { label: "Contact", href: "/#contact", active: pathname === "/contact" },
+  ];
 
   return (
     <nav className="sticky top-0 z-50 w-full border-b border-gray-100 bg-white/95 backdrop-blur-md">

@@ -8,6 +8,7 @@ import GettingStartedSection from "./components/GettingStartedSection";
 import BelongingStatementSection from "./components/BelongingStatementSection";
 import FAQSection from "./components/FAQSection";
 import CommunityInvitationSection from "./components/CommunityInvitationSection";
+import Footer from "./components/Footer";
 
 export default function Home() {
   return (
@@ -24,6 +25,7 @@ export default function Home() {
         <FAQSection />
         <CommunityInvitationSection />
       </main>
+      <Footer />
     </div>
   );
 }
