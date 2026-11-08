@@ -2,6 +2,7 @@ import Navbar from "../components/Navbar";
 import OverviewIntroSection from "../components/OverviewIntroSection";
 import LearningTrackOverviewSection from "../components/LearningTrackOverviewSection";
 import LearningOutcomesSection from "../components/LearningOutcomesSection";
+import ProgramFormatsSection from "../components/ProgramFormatsSection";
 import Footer from "../components/Footer";
 
 export const metadata = {
@@ -18,6 +19,7 @@ export default function OverviewPage() {
         <OverviewIntroSection />
         <LearningTrackOverviewSection />
         <LearningOutcomesSection />
+        <ProgramFormatsSection />
       </main>
       <Footer />
     </div>
