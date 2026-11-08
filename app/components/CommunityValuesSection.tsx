@@ -2,39 +2,33 @@ import { BookOpen, Users, CodeXml, Heart } from "lucide-react";
 import Container from "./ui/Container";
 import SectionBadge from "./ui/SectionBadge";
 import ValueCard from "./ui/ValueCard";
+import { getValues, ApiValue } from "../lib/values";
 
-const values = [
-  {
+const VALUE_VISUALS: Record<
+  string,
+  { accentColor: string; icon: React.ReactNode }
+> = {
+  "stay-curious": {
     accentColor: "bg-[#4285f4]",
     icon: <BookOpen className="h-5 w-5 stroke-[1.8]" />,
-    title: "Stay curious",
-    description:
-      "Ask the extra question. Be willing to learn something outside your comfort zone.",
   },
-  {
+  "make-room": {
     accentColor: "bg-[#ea4335]",
     icon: <Users className="h-5 w-5 stroke-[1.8]" />,
-    title: "Make room",
-    description:
-      "Welcome different perspectives, respect each other, and help people find their voice.",
   },
-  {
+  "learn-by-building": {
     accentColor: "bg-[#fbbc04]",
     icon: <CodeXml className="h-5 w-5 stroke-[1.8]" />,
-    title: "Learn by building",
-    description:
-      "Try a small experiment. Share the rough version. Let feedback guide what comes next.",
   },
-  {
+  "give-something-back": {
     accentColor: "bg-[#34a853]",
     icon: <Heart className="h-5 w-5 stroke-[1.8]" />,
-    title: "Give something back",
-    description:
-      "Share a resource, explain what clicked, or help someone take their next step.",
   },
-];
+};
 
-export default function CommunityValuesSection() {
+export default async function CommunityValuesSection() {
+  const valuesData: ApiValue[] = await getValues();
+
   return (
     <section className="w-full bg-white py-16 md:py-24 lg:py-28">
       <Container>
@@ -49,18 +43,24 @@ export default function CommunityValuesSection() {
 
         {/* 4 Cards Grid */}
         <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 lg:mt-16">
-          {values.map((val) => (
-            <ValueCard
-              key={val.title}
-              accentColor={val.accentColor}
-              icon={val.icon}
-              title={val.title}
-              description={val.description}
-            />
-          ))}
+          {valuesData.map((val) => {
+            const visual = VALUE_VISUALS[val.id] || {
+              accentColor: "bg-[#4285f4]",
+              icon: <BookOpen className="h-5 w-5 stroke-[1.8]" />,
+            };
+
+            return (
+              <ValueCard
+                key={val.id}
+                accentColor={visual.accentColor}
+                icon={visual.icon}
+                title={val.title}
+                description={val.description}
+              />
+            );
+          })}
         </div>
       </Container>
     </section>
   );
 }
-

@@ -1,50 +1,47 @@
 import { BookOpen, CodeXml, Users, Lightbulb } from "lucide-react";
 import Container from "./ui/Container";
 import SectionBadge from "./ui/SectionBadge";
-import ProgramFormatCard, {
-  ProgramFormatCardProps,
-} from "./ui/ProgramFormatCard";
+import ProgramFormatCard from "./ui/ProgramFormatCard";
+import { getFormats, ApiFormat } from "../lib/formats";
 
-const formats: ProgramFormatCardProps[] = [
+const FORMAT_VISUALS: Record<
+  string,
   {
+    icon: typeof BookOpen;
+    iconBg: string;
+    iconColor: string;
+    footer: string;
+  }
+> = {
+  "study-groups": {
     icon: BookOpen,
     iconBg: "bg-[#e8f0fe]",
     iconColor: "text-[#1a73e8]",
-    title: "Study groups",
-    description:
-      "Build foundations with peers. Work through a topic, compare approaches, and make space for questions.",
     footer: "Best for · Learning the fundamentals",
   },
-  {
+  "hands-on-workshops": {
     icon: CodeXml,
     iconBg: "bg-[#e6f4ea]",
     iconColor: "text-[#1e8e3e]",
-    title: "Hands-on workshops",
-    description:
-      "Get introduced to a tool or method, follow a practical exercise, and take away something to keep exploring.",
     footer: "Best for · Trying something new",
   },
-  {
+  "project-circles": {
     icon: Users,
     iconBg: "bg-[#fef7e0]",
     iconColor: "text-[#b06000]",
-    title: "Project circles",
-    description:
-      "Connect research, design, and development around a shared problem. Learn through making and feedback.",
     footer: "Best for · Putting skills into practice",
   },
-  {
+  "knowledge-sharing": {
     icon: Lightbulb,
     iconBg: "bg-[#fce8e6]",
     iconColor: "text-[#d93025]",
-    title: "Knowledge sharing",
-    description:
-      "Walk through an idea, share a lesson from your process, and discover how other students approach their work.",
     footer: "Best for · Exchanging perspectives",
   },
-];
+};
 
-export default function ProgramFormatsSection() {
+export default async function ProgramFormatsSection() {
+  const formatsData: ApiFormat[] = await getFormats();
+
   return (
     <section id="learning-formats" className="w-full bg-[#f1f3f4] py-16 md:py-24 lg:py-28">
       <Container>
@@ -70,12 +67,28 @@ export default function ProgramFormatsSection() {
 
         {/* ── 2x2 Cards Grid ── */}
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-          {formats.map((item) => (
-            <ProgramFormatCard key={item.title} {...item} />
-          ))}
+          {formatsData.map((item) => {
+            const visual = FORMAT_VISUALS[item.id] || {
+              icon: BookOpen,
+              iconBg: "bg-[#e8f0fe]",
+              iconColor: "text-[#1a73e8]",
+              footer: "Best for · Exploring formats",
+            };
+
+            return (
+              <ProgramFormatCard
+                key={item.id}
+                icon={visual.icon}
+                iconBg={visual.iconBg}
+                iconColor={visual.iconColor}
+                title={item.name}
+                description={item.description}
+                footer={visual.footer}
+              />
+            );
+          })}
         </div>
       </Container>
     </section>
   );
 }
-
